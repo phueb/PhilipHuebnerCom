@@ -37,76 +37,71 @@
 
 <main class="flex-shrink-0 container mt-5">
     <nav class="navbar navbar-expand-lg navbar-light">
-
         <a class="navbar-brand" href="/"><h5><b>Philip's personal site</b></h5></a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link  active " href="/projects ">Projects</a>
-                <a class="nav-item nav-link " href=" /articles/ ">Articles</a>
+                <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+                <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
                 <a class="nav-item nav-link " href=" /docs/ ">Docs</a>
                 <a class="nav-item nav-link " href=" /datasets/ ">DataSets</a>
                 <a class="nav-item nav-link " href=" /about/ ">About</a>
             </div>
         </div>
-
     </nav>
-    <div class="card-columns m-3 mt-5">
+    <!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
 
-        <div class="wow animated fadeIn" data-wow-delay=".15s">
-            <a href="/projects/ludwig" class="project card text-dark">
-                <img class="card-img-top" src="/images/ludwig.png" alt="Card image cap">
+    <div class="input-group mt-5 px-3">
+        <input id="search-input" type="text" class="form-control search-box" placeholder="Search articles..">
+        <div class="input-group-append">
+            <span class="input-group-text border border-primary bg-primary text-white"><i class="fas fa-search"></i></span>
+        </div>
+    </div>
+    <ul class="px-3" id="results-container"></ul>
 
-                <div class="card-body">
-                    <h5 class="card-title">Ludwig</h5>
-                    <p class="card-text">Designed with neural network research in mind, Ludwig is a Python job submission system at the UIUC Language & Learning Lab.</p>
+    <div class="card-group mt-2">
+        <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+            <a href="https://medium.com/@phueb/order-matters" class="article card bg-success">
+                <div class="card-body text-white">
+                    <h3 class="card-title">Order Matters</h3>
                     <p class="card-text">
-                        <span class="badge badge-pill text-primary border border-primary">Python</span>
-                        <span class="badge badge-pill text-primary border border-primary">Deep Learning</span>
-                        <span class="badge badge-pill text-primary border border-primary">Computation</span>
+                        <span class="badge badge-light text-success">Order Matters</span>
+                        <span class="badge badge-light text-success">Recurrent Network</span>
+                        <span class="badge badge-light text-success">Language Acquisition</span>
                     </p>
+                    <p class="card-text">
+                        Developmentally plausible training of recurrent network langauge models.
+                    </p>
+                </div>
+                <div class="card-footer text-white">
+                    30 March 2019
                 </div>
             </a>
         </div>
 
-        <div class="wow animated fadeIn" data-wow-delay=".15s">
-            <a href="/projects/balanced" class="project card text-dark">
-                <img class="card-img-top" src="/images/balanced.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Balanced</h5>
-                    <p class="card-text">generate random lists with various constraints for behavioral experiments in cognitive psychology.</p>
+        <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+            <a href="https://medium.com/@phueb/two-process-theory" class="article card bg-primary">
+                <div class="card-body text-white">
+                    <h3 class="card-title">Two-Process Theory.</h3>
                     <p class="card-text">
-                        <span class="badge badge-pill text-primary border border-primary">Research</span>
-                        <span class="badge badge-pill text-primary border border-primary">Psychology</span>
-                        <span class="badge badge-pill text-primary border border-primary">Python</span>
+                        <span class="badge badge-light text-primary">Language Acquisition</span>
+                        <span class="badge badge-light text-primary">Pre-training</span>
+                        <span class="badge badge-light text-primary">NLP</span>
                     </p>
+                    <p class="card-text">
+                        Using differentiable metric learning to model human task-related semantic processing.
+                    </p>
+                </div>
+                <div class="card-footer text-white">
+                    30 March 2019
                 </div>
             </a>
         </div>
 
-        <div class="wow animated fadeIn" data-wow-delay=".15s">
-            <a href="/projects/bcsweb" class="project card text-dark">
-                <img class="card-img-top" src="/images/bcsweb.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">BcsWeb</h5>
-                    <p class="card-text">Brain and Cognitive Science Web, a web-based, open-source textbook that teaches cognitive science.</p>
-                    <p class="card-text">
-                        <span class="badge badge-pill text-primary border border-primary">Python</span>
-                        <span class="badge badge-pill text-primary border border-primary">Flask</span>
-                        <span class="badge badge-pill text-primary border border-primary">Education</span>
-                        <span class="badge badge-pill text-primary border border-primary">Web</span>
-                    </p>
-                </div>
-            </a>
-        </div>
 
     </div>
-
-
 </main>
 
 <footer class="mt-auto py-3 text-center">
