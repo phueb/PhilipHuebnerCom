@@ -55,8 +55,10 @@
     <div class="col-lg-10 mx-auto mt-5 article">
         <h1 id="deeppunct">DeepPunct</h1>
 
-        <h2>Please note, the demo on this page is taken from Praneeth Bedapudi, who's GitHub Page is <a href="https://github.com/bedapudi6788">here</a>
-        </h2>
+        <div class="alert alert-primary" role="alert">
+            Please note, the demo on this page is taken from Praneeth Bedapudi, who's GitHub Page is <a href="https://github.com/bedapudi6788">here</a>
+        </div>
+
 
         <!-- Place this tag where you want the button to render. -->
         <!-- Place this tag in your head or just before your close body tag. -->
@@ -152,31 +154,7 @@
         <p><button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button></p>
         <div class="col-sm-12"> <pre id="resultJSON"></pre> </div>
 
-        <p>Designed with ASR outputs in mind, DeepPunct uses LSTM encoder and decoders with Luong attention for automatic punctuation restoration.</p>
 
-        <p><img src="/images/deeppunct_example.png" alt="" /></p>
-
-        <h1 id="installation">Installation</h1>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Install tensorflow or tensorflow-gpu separately
-pip install deepcorrect
-</code></pre></div></div>
-
-        <h1 id="usage">Usage</h1>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># if you are using gpu for prediction, please see https://stackoverflow.com/questions/34199233/how-to-prevent-tensorflow-from-allocating-the-totality-of-a-gpu-memory for restricting memory usage
-
-from deepcorrect import DeepCorrect
-corrector = DeepCorrect('params_path', 'checkpoint_path')
-corrector.correct('how are you')
-# How are you?
-</code></pre></div></div>
-
-        <p>The pre-trained models are available <a href="https://drive.google.com/open?id=1Yd8cJaqfQkrJMbRVWIWtuyo4obTDYu-e">here.</a></p>
-
-        <p class="text-center">
-            <a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/bedapudi6788/deepcorrect">
-                Learn More
-            </a>
-        </p>
 
     </div>
 </main>
