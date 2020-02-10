@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hello! My name is Huebner Philip and I am a graduate student at Universtiy of Illinois, Urbana-Champaign.">
+
+    <title>Philip's personal site</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Animate CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+<main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/"><h5><b>Philip's personal site</b></h5></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link  active " href="/projects ">Projects</a>
+                <a class="nav-item nav-link " href=" /articles/ ">Articles</a>
+                <a class="nav-item nav-link " href=" /docs/ ">Docs</a>
+                <a class="nav-item nav-link " href=" /datasets/ ">DataSets</a>
+                <a class="nav-item nav-link " href=" /about/ ">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="col-lg-10 mx-auto mt-5 article">
+        <h1 id="deeppunct">DeepPunct</h1>
+
+        <!-- Place this tag where you want the button to render. -->
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+
+        <p><a class="github-button" href="https://github.com/bedapudi6788" data-size="large" data-show-count="true" aria-label="Follow @bedapudi6788 on GitHub">Follow @bedapudi6788</a>
+            <a class="github-button" href="https://github.com/bedapudi6788/deepcorrect" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star bedapudi6788/deepcorrect on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/bedapudi6788/deepcorrect/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork bedapudi6788/deepcorrect on GitHub">Fork</a></p>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+        <style>
+            #resultJSON:empty {display: none}
+
+            #loader {
+                z-index:1000;
+                border: 5px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 5px solid #1e93e0;
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                -webkit-animation: spin 1s linear infinite;
+                /* Safari */
+                animation: spin 1s linear infinite;
+            }
+
+            /* Safari */
+
+            @-webkit-keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                }
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <script>
+            function parseQuery(e) {
+                query = $('#queryInput').val();
+                $('#loader').show();
+
+                let payload = {
+                    text: query
+                };
+                console.log(JSON.stringify(payload, undefined, 2))
+                axios.post('http://ai.bpraneeth.com:6788/deep-segment_punct', payload)
+                    .then((response) => {
+                        if (!response || !response.data) {
+                            console.error('Server Error! Please try again');
+                            $('#loader').hide();
+                            return;
+                        }
+                        $('#loader').hide();
+                        console.log(JSON.stringify(response.data, undefined, 2))
+                        processResponse(response.data);
+                    })
+                    .catch((err) => {
+                        $('#loader').hide();
+                        console.error(err);
+                    })
+            }
+
+            function processResponse(data) {
+                $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
+            }
+
+            window.onload = function() {
+                console.log( "ready!" );
+                $('#loader').hide();
+            };
+
+        </script>
+
+        <p><input type="text" class="form-control" id="queryInput" placeholder="DeepSegment + DeepPunct demo. Input limit: 600 characters." /></p>
+        <div id="loader"></div>
+
+        <p><button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button></p>
+        <div class="col-sm-12"> <pre id="resultJSON"></pre> </div>
+
+        <p>Designed with ASR outputs in mind, DeepPunct uses LSTM encoder and decoders with Luong attention for automatic punctuation restoration.</p>
+
+        <p><img src="/images/deeppunct_example.png" alt="" /></p>
+
+        <h1 id="installation">Installation</h1>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Install tensorflow or tensorflow-gpu separately
+pip install deepcorrect
+</code></pre></div></div>
+
+        <h1 id="usage">Usage</h1>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># if you are using gpu for prediction, please see https://stackoverflow.com/questions/34199233/how-to-prevent-tensorflow-from-allocating-the-totality-of-a-gpu-memory for restricting memory usage
+
+from deepcorrect import DeepCorrect
+corrector = DeepCorrect('params_path', 'checkpoint_path')
+corrector.correct('how are you')
+# How are you?
+</code></pre></div></div>
+
+        <p>The pre-trained models are available <a href="https://drive.google.com/open?id=1Yd8cJaqfQkrJMbRVWIWtuyo4obTDYu-e">here.</a></p>
+
+        <p class="text-center">
+            <a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/bedapudi6788/deepcorrect">
+                Learn More
+            </a>
+        </p>
+
+    </div>
+</main>
+
+<footer class="mt-auto py-3 text-center">
+
+    <small class="text-muted mb-2">
+        <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+        by <strong>Huebner Philip</strong>
+    </small>
+
+    <div class="container-fluid justify-content-center">
+        <a class="social email mx-1" href="mailto:info@philhuebner.com">
+            <i class="fas fa-1x fa-envelope"></i>
+        </a>
+        <a class="social github mx-1" href="https://www.github.com/phueb">
+            <i class="fab fa-1x fa-github"></i>
+        </a>
+        <a class="social linkedin mx-1" href="https://www.linkedin.com/in/philip-huebner-542001114">
+            <i class="fab fa-1x fa-linkedin-in"></i>
+        </a>
+        <a class="social medium mx-1" href="http://medium.com/@phueb">
+            <i class="fab fa-1x fa-medium"></i>
+        </a>
+    </div>
+
+</footer>
+<!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+    var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+    })
+</script>
+
+</body>
+
+</html>
