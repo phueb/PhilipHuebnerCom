@@ -76,13 +76,11 @@
                 loader.show();
 
                 let payload = {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    },
+                    crossdomain: true,
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                axios.post('http://ai.philhuebner.com/babytalk', payload)
+                axios.get('http://ai.philhuebner.com/babytalk', payload)
                     .then((response) => {
                         if (!response || !response.data) {
                             console.error('Server Error! Please try again');
