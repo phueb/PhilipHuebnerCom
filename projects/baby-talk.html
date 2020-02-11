@@ -86,7 +86,11 @@
                         loader.hide();
                         console.log(JSON.stringify(response, undefined, 2));
                         $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(response, undefined, 2));
+                    },
+                    error: function(response, status, error) {
+                        console.log(error)
                     }
+
                 });
             }
 
