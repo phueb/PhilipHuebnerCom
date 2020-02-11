@@ -84,7 +84,7 @@
                         $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
                     }).fail(function(jqXHR, textStatus, errorThrown)
                 {
-                    alert(textStatus);
+                    console.log(textStatus, errorThrown);
                 });
 
             }
