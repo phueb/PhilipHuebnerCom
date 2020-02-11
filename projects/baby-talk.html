@@ -99,11 +99,19 @@
 
         </script>
 
-        <p><input type="text" class="form-control" id="queryInput" placeholder="DeepSegment + DeepPunct demo. Input limit: 600 characters." /></p>
+        <!--        input and button-->
+        <p>
+            <input type="text" class="form-control" id="queryInput" placeholder="DeepSegment + DeepPunct demo. Input limit: 600 characters." />
+        </p>
         <div id="loader"></div>
+        <p>
+            <button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button>
+        </p>
+        <!--        results-->
+        <div class="col-sm-12">
+            <pre id="resultJSON">
 
-        <p><button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button></p>
-        <div class="col-sm-12"> <pre id="resultJSON"></pre> </div>
+            </pre> </div>
 
 
 

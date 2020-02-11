@@ -101,11 +101,18 @@
             };
 
         </script>
-
-        <p><input type="text" class="form-control" id="queryInput" placeholder="Balanced demo. Input limit: 600 characters." /></p>
+        <!--        input and button-->
+        <p>
+            <input type="text" class="form-control" id="queryInput" placeholder="Balanced demo. Input limit: 600 characters." />
+        </p>
         <div id="loader"></div>
-
-        <p><button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button></p>
+        <p>
+            <button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button>
+        </p>
+        <!--        results-->
+        <div class="col-sm-12">
+            <pre id="resultJSON"></pre>
+        </div>
 
         <p>Create random stimuli lists for behavioral experiments in cognitive psychology.</p>
         <h1 id="installation">Installation</h1>
