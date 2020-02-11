@@ -78,7 +78,7 @@
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
                 $.ajax(
-                    {type: "POST",
+                    {method: "POST",
                     dataType: "json",
                     url: 'http://ai.philhuebner.com/babytalk',
                     data: payload,
