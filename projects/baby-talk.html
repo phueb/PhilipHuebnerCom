@@ -71,26 +71,27 @@
 
         <script>
             function parseQuery(e) {
-                query = $('#queryInput').val();
-                $('#loader').show();
+                let query = $('#queryInput').val();
+                let loader = $('#loader');
+                loader.show();
 
                 let payload = {
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                axios.post('http://ai.philhuebner.com/babytalk', payload)
+                axios.get('http://ai.philhuebner.com/babytalk')
                     .then((response) => {
                         if (!response || !response.data) {
                             console.error('Server Error! Please try again');
                             $('#loader').hide();
                             return;
                         }
-                        $('#loader').hide();
+                        loader.hide();
                         console.log(JSON.stringify(response.data, undefined, 2));
                         processResponse(response.data);
                     })
                     .catch((err) => {
-                        $('#loader').hide();
+                        loader.hide();
                         console.error(err);
                     })
             }
