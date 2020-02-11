@@ -83,6 +83,7 @@
                     url: 'http://ai.philhuebner.com/babytalk',
                     data: payload,
                     success: function(response){
+                        loader.hide();
                         console.log(JSON.stringify(response, undefined, 2));
                         $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(response, undefined, 2));
                     }
