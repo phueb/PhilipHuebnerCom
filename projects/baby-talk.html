@@ -88,7 +88,7 @@
                         $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(response, undefined, 2));
                     },
                     error: function(response, status, error) {
-                        console.log(error)
+                        console.log(response, status, error)
                     }
 
                 });
