@@ -74,7 +74,7 @@
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                axios.post('https://jsonplaceholder.typicode.com/posts', payload)
+                axios.post('https://jsonplaceholder.typicode.com/posts/10', payload)
                     .then((response) => {
                         if (!response || !response.data) {
                             console.error('Server Error! Please try again');
