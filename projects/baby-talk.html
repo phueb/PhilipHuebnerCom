@@ -67,8 +67,6 @@
             <a class="github-button" href="https://github.com/phueb/BabyTalk/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork phueb/BabyTalk on GitHub">Fork</a></p>
 
 
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
         <script>
             function parseQuery(e) {
                 let query = $('#queryInput').val();
@@ -76,30 +74,26 @@
                 loader.show();
 
                 let payload = {
-                    crossdomain: true,
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                axios.get('http://ai.philhuebner.com/babytalk', payload)
-                    .then((response) => {
-                        if (!response || !response.data) {
-                            console.error('Server Error! Please try again');
-                            $('#loader').hide();
-                            return;
+                $.ajax(
+                    {method: "POST",
+                        type: "POST",
+                        url: 'http://ai.philhuebner.com/babytalk',
+                        data: payload,
+                        success: function(response){
+                            loader.hide();
+                            console.log(JSON.stringify(response, undefined, 2));
+                            $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(response, undefined, 2));
+                        },
+                        error: function(response, status, error) {
+                            console.log(response, status, error)
                         }
-                        loader.hide();
-                        console.log(JSON.stringify(response.data, undefined, 2));
-                        processResponse(response.data);
-                    })
-                    .catch((err) => {
-                        loader.hide();
-                        console.error(err);
-                    })
+
+                    });
             }
 
-            function processResponse(data) {
-                $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
-            }
 
             window.onload = function() {
                 console.log( "ready!" );
