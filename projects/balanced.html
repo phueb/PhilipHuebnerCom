@@ -74,7 +74,7 @@
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                axios.post('https://jsonplaceholder.typicode.com/posts/10', payload)
+                axios.post('https://jsonplaceholder.typicode.com/posts', payload)
                     .then((response) => {
                         if (!response || !response.data) {
                             console.error('Server Error! Please try again');
@@ -83,14 +83,16 @@
                         }
                         loader.hide();
                         console.log(JSON.stringify(response, undefined, 2));
-                        $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(response.data, undefined, 2));
+                        processResponse(response.data);
                     })
                     .catch((err) => {
                         loader.hide();
                         console.error(err);
                     })
             }
-
+            function processResponse(data) {
+                $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
+            }
 
             window.onload = function() {
                 console.log( "ready!" );
