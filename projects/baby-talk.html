@@ -60,45 +60,6 @@
         </div>
 
 
-        <style>
-            #resultJSON:empty {display: none}
-
-            #loader {
-                z-index:1000;
-                border: 5px solid #f3f3f3;
-                border-radius: 50%;
-                border-top: 5px solid #1e93e0;
-                width: 40px;
-                height: 40px;
-                position: absolute;
-                top: 20%;
-                left: 50%;
-                -webkit-animation: spin 1s linear infinite;
-                /* Safari */
-                animation: spin 1s linear infinite;
-            }
-
-            /* Safari */
-
-            @-webkit-keyframes spin {
-                0% {
-                    -webkit-transform: rotate(0deg);
-                }
-                100% {
-                    -webkit-transform: rotate(360deg);
-                }
-            }
-
-            @keyframes spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-        </style>
-
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <script>
