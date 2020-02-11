@@ -82,11 +82,11 @@
                             return;
                         }
                         loader.hide();
-                        console.log(JSON.stringify(response.data, undefined, 2));
+                        console.log(JSON.stringify(response, undefined, 2));
                         $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(response.data, undefined, 2));
                     })
                     .catch((err) => {
-                        $('#loader').hide();
+                        loader.hide();
                         console.error(err);
                     })
             }
