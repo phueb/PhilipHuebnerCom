@@ -77,7 +77,7 @@
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                $.post('http://philhuebner.com/bcsweb', payload,
+                $.post('http://philhuebner.com/babytalk-demo/', payload,
                     function(data, textStatus, jqXHR){
                         loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
