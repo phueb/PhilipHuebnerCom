@@ -86,7 +86,7 @@
                     function(data, textStatus, jqXHR){
                         loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
-                        $('#resultJSON').append(JSON.stringify(data, undefined, 2));
+                        $('#resultTABLE').append(JSON.stringify(data, undefined, 2));
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
@@ -113,7 +113,7 @@
         </p>
         <!--        results-->
         <div class="col-sm-12">
-            <pre id="resultJSON"></pre>
+            <div id="resultTABLE"></div>
             <img id="resultIMG" src="/images/under-construction.png">
         </div>
 
