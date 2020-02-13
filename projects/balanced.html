@@ -53,45 +53,45 @@
     </nav>
 
     <div class="col-lg-10 mx-auto mt-5 article">
-        <h1 id="balanced">Balanced</h1>
+        <h1 id="babytalk">BabyTalk Demo</h1>
+
+        <div class="alert alert-primary" role="alert">
+            Please be patient with the demo - it may take a while
+        </div>
 
         <!-- Place this tag where you want the button to render. -->
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
-        <p><a class="github-button" href="https://github.com/phueb" data-size="large" data-show-count="true" aria-label="Follow @phueb on GitHub">Follow @phueb</a>
-            <a class="github-button" href="https://github.com/UIUCLearningLanguageLab/Balanced" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star UIUCLearningLanguageLab/Balanced on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/UIUCLearningLanguageLab/Balanced/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork UIUCLearningLanguageLab/Balanced on GitHub">Fork</a></p>
+        <p>
+            <a class="github-button" href="https://github.com/phueb" data-size="large" data-show-count="true" aria-label="Follow @phueb on GitHub">Follow @phueb</a>
+            <a class="github-button" href="https://github.com/phueb/BabyTalk" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star phueb/BabyTalk on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/phueb/BabyTalk/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork phueb/BabyTalk on GitHub">Fork</a>
+        </p>
 
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <script>
             function parseQuery(e) {
                 let query = $('#queryInput').val();
                 let loader = $('#loader');
                 loader.show();
+
                 let payload = {
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                axios.post('https://jsonplaceholder.typicode.com/posts', payload)
-                    .then((response) => {
-                        if (!response || !response.data) {
-                            console.error('Server Error! Please try again');
-                            loader.hide();
-                            return;
-                        }
+                $.post('http://phueb001.pythonanywhere.com',
+                    payload,
+                    function(data, textStatus, jqXHR){
                         loader.hide();
-                        console.log(JSON.stringify(response, undefined, 2));
-                        processResponse(response.data);
-                    })
-                    .catch((err) => {
-                        loader.hide();
-                        console.error(err);
-                    })
-            }
-            function processResponse(data) {
-                $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
+                        console.log(JSON.stringify(data, undefined, 2));
+                        $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
+                    },
+                    'json'
+                ).fail(function(jqXHR, textStatus, errorThrown)
+                {
+                    console.log(textStatus, errorThrown);
+                });
+
             }
 
             window.onload = function() {
@@ -100,6 +100,7 @@
             };
 
         </script>
+
         <!--        input and button-->
         <p>
             <input type="text" class="form-control" id="queryInput" placeholder="Balanced demo. Input limit: 600 characters." />
