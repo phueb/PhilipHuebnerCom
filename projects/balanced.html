@@ -85,7 +85,7 @@
                         loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
                         // $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
-                        $('#resultIMG').attr("src", "data:image/png;base64," + JSON.stringify(data, undefined, 2));
+                        $('#resultIMG').attr("src", "data:image/png;base64," + data.result);
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
@@ -113,7 +113,7 @@
         <!--        results-->
         <div class="col-sm-12">
             <pre id="resultJSON"></pre>
-            <img id="resultIMG">
+            <img id="resultIMG" src="/images/baby-talk.png">
         </div>
 
         <p>Create random stimuli lists for behavioral experiments in cognitive psychology.</p>
