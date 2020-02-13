@@ -86,7 +86,7 @@
                     function(data, textStatus, jqXHR){
                         loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
-                        $('#resultTABLE').append(JSON.stringify(data, undefined, 2));
+                        $('#resultTABLE').innerHTML(data.result);
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
