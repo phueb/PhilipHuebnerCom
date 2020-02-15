@@ -82,7 +82,7 @@
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                $.post('http://phueb001.pythonanywhere.com',
+                $.post('http://phueb001.pythonanywhere.com/context-demo',
                     payload,
                     function(data, textStatus, jqXHR){
                         loader.hide();
