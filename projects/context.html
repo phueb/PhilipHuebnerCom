@@ -75,7 +75,8 @@
                 let query = $('#queryInput').val();
                 let loader = $('#loader');
                 let table = $('#resultTABLE');
-                $('#queryError').hide();
+                let err = $('#queryError');
+
                 loader.show();
 
                 let payload = {
@@ -85,18 +86,20 @@
                 $.post('http://phueb001.pythonanywhere.com/context-demo',
                     payload,
                     function(data, textStatus, jqXHR){
-                        loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
-                        $('#queryError').hide();
+
+                        loader.hide();
+                        err.hide();
                         table.show();
                         table.html(data.result);
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
                 {
-                    $('#queryError').show();
-                    $('#resultTABLE').hide();
                     console.log(textStatus, errorThrown);
+                    loader.hide();
+                    err.show();
+                    table.hide();
                 });
             }
             window.onload = function() {

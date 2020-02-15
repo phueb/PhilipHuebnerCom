@@ -75,6 +75,9 @@
             function parseQuery(e) {
                 let query = $('#queryInput').val();
                 let loader = $('#loader');
+                let table = $('#resultTABLE');
+                let err = $('#queryError');
+
                 loader.show();
 
                 let payload = {
@@ -84,14 +87,20 @@
                 $.post('http://phueb001.pythonanywhere.com/babytalk-demo',
                     payload,
                     function(data, textStatus, jqXHR){
-                        loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
-                        $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
+
+                        loader.hide();
+                        err.hide();
+                        table.show();
+                        table.html(data.result);
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
                 {
                     console.log(textStatus, errorThrown);
+                    loader.hide();
+                    err.show();
+                    table.hide();
                 });
 
             }
@@ -113,8 +122,10 @@
         </p>
         <!--        results-->
         <div class="col-sm-12">
-            <pre id="resultJSON"></pre>
-            <img id="resultIMG" src="/images/under-construction.png">
+            <div class="alert alert-danger" role="alert" id="queryError">
+                Did not find word in corpus.
+            </div>
+            <div id="resultTABLE"></div>
         </div>
 
 
