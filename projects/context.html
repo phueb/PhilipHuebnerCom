@@ -70,11 +70,12 @@
             <a class="github-button" href="https://github.com/phueb/Context/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork phueb/Context on GitHub">Fork</a>
         </p>
 
-
         <script>
             function parseQuery(e) {
                 let query = $('#queryInput').val();
                 let loader = $('#loader');
+                let table = $('#resultTABLE');
+                $('#queryError').hide();
                 loader.show();
 
                 let payload = {
@@ -86,21 +87,23 @@
                     function(data, textStatus, jqXHR){
                         loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
-                        $('#resultTABLE').html(data.result);
+                        $('#queryError').hide();
+                        table.show();
+                        table.html(data.result);
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
                 {
+                    $('#queryError').show();
+                    $('#resultTABLE').hide();
                     console.log(textStatus, errorThrown);
                 });
-
             }
-
             window.onload = function() {
                 console.log( "ready!" );
+                $('#queryError').hide();
                 $('#loader').hide();
             };
-
         </script>
 
         <!--        input and button-->
@@ -113,6 +116,9 @@
         </p>
         <!--        results-->
         <div class="col-sm-12">
+            <div class="alert alert-danger" role="alert" id="queryError">
+                Did not find word in corpus.
+            </div>
             <div id="resultTABLE"></div>
         </div>
 
