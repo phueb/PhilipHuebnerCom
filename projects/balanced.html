@@ -75,24 +75,32 @@
             function parseQuery(e) {
                 let query = $('#queryInput').val();
                 let loader = $('#loader');
+                let table = $('#resultTABLE');
+                let err = $('#queryError');
+
                 loader.show();
 
                 let payload = {
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                $.post('http://phueb001.pythonanywhere.com',
+                $.post('http://phueb001.pythonanywhere.com/balanced-demo',
                     payload,
                     function(data, textStatus, jqXHR){
-                        loader.hide();
                         console.log(JSON.stringify(data, undefined, 2));
-                        // $('#resultJSON').html('<h4>Result:</h4><br>' + JSON.stringify(data, undefined, 2));
-                        $('#resultIMG').attr("src", "data:image/png;base64," + data.result);
+
+                        loader.hide();
+                        err.hide();
+                        table.show();
+                        table.html(data.result);
                     },
                     'json'
                 ).fail(function(jqXHR, textStatus, errorThrown)
                 {
                     console.log(textStatus, errorThrown);
+                    loader.hide();
+                    err.show();
+                    table.hide();
                 });
 
             }
@@ -106,17 +114,20 @@
 
         <!--        input and button-->
         <p>
-            <input type="text" class="form-control" id="queryInput" placeholder="Balanced demo. Input limit: 600 characters." />
+            <input type="text" class="form-control" id="queryInput" placeholder="X Y Z" />
         </p>
         <div id="loader"></div>
         <p>
             <button class="btn btn-primary" type="button" onclick="parseQuery()">Submit</button>
         </p>
+
+        <img id="resultIMG" src="/images/under-construction.png">
+
         <!--        results-->
-        <div class="col-sm-12">
-            <pre id="resultJSON"></pre>
-            <img id="resultIMG" src="/images/under-construction.png">
+        <div class="alert alert-danger" role="alert" id="queryError">
+            Error.
         </div>
+        <div id="resultTABLE"></div>
 
 
         <h1 id="installation">Installation</h1>
