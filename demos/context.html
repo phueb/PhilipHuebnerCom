@@ -43,8 +43,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link  active " href="/projects ">Projects</a>
-                <a class="nav-item nav-link " href=" /articles/ ">Articles</a>
+                <a class="nav-item nav-link  active " href="/demos ">Demos</a>
+                <a class="nav-item nav-link " href="/publications/ ">Publications</a>
                 <a class="nav-item nav-link " href=" /docs/ ">Docs</a>
                 <a class="nav-item nav-link " href=" /datasets/ ">DataSets</a>
                 <a class="nav-item nav-link " href=" /about/ ">About</a>
@@ -53,9 +53,9 @@
     </nav>
 
     <div class="col-lg-10 mx-auto mt-5 article">
-        <h1 id="babytalk">BabyTalk Demo</h1>
+        <h1 id="context">Context Demo</h1>
 
-        <p>Continue an utterance using a tri-gram language model fit on 5M words of child-directed speech.</p>
+        <p>Retrieve linguistic contexts in which a word occurs in child-directed speech.</p>
 
         <div class="alert alert-primary" role="alert">
             Please be patient with the demo - it may take a while
@@ -66,10 +66,9 @@
         <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
         <p>
             <a class="github-button" href="https://github.com/phueb" data-size="large" data-show-count="true" aria-label="Follow @phueb on GitHub">Follow @phueb</a>
-            <a class="github-button" href="https://github.com/phueb/BabyTalk" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star phueb/BabyTalk on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/phueb/BabyTalk/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork phueb/BabyTalk on GitHub">Fork</a>
+            <a class="github-button" href="https://github.com/phueb/Context" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star phueb/Context on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/phueb/Context/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork phueb/Context on GitHub">Fork</a>
         </p>
-
 
         <script>
             function parseQuery(e) {
@@ -84,7 +83,7 @@
                     text: query
                 };
                 console.log(JSON.stringify(payload, undefined, 2));
-                $.post('http://phueb001.pythonanywhere.com/babytalk-demo',
+                $.post('http://phueb001.pythonanywhere.com/context-demo',
                     payload,
                     function(data, textStatus, jqXHR){
                         console.log(JSON.stringify(data, undefined, 2));
@@ -102,19 +101,17 @@
                     err.show();
                     table.hide();
                 });
-
             }
-
             window.onload = function() {
                 console.log( "ready!" );
+                $('#queryError').hide();
                 $('#loader').hide();
             };
-
         </script>
 
         <!--        input and button-->
         <p>
-            <input type="text" class="form-control" id="queryInput" placeholder="look at the" />
+            <input type="text" class="form-control" id="queryInput" placeholder="orange" />
         </p>
         <div id="loader"></div>
         <p>

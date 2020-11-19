@@ -37,62 +37,37 @@
 
 <main class="flex-shrink-0 container mt-5">
     <nav class="navbar navbar-expand-lg navbar-light">
-
         <a class="navbar-brand" href="/"><h5><b>Philip's personal site</b></h5></a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-
-
-
-
-
-
-
-                <a class="nav-item nav-link " href="demos/ ">Demos</a>
-
-
-
-                <a class="nav-item nav-link " href="publications/ ">Publications</a>
-
-
-
-                <a class="nav-item nav-link " href=" docs/ ">Docs</a>
-
-
-
-                <a class="nav-item nav-link " href=" datasets/ ">DataSets</a>
-
-
-
-                <a class="nav-item nav-link " href=" about/ ">About</a>
-
-
+                <a class="nav-item nav-link " href="/demos/ ">Demos</a>
+                <a class="nav-item nav-link  active " href="/publications/ ">Publications</a>
+                <a class="nav-item nav-link " href=" /docs/ ">Docs</a>
+                <a class="nav-item nav-link " href=" /datasets/ ">DataSets</a>
+                <a class="nav-item nav-link " href=" /about/ ">About</a>
             </div>
         </div>
-
     </nav>
-    <div class="row justify-content-center align-items-center p-4">
-        <div class="col-lg-4 col-md-6 text-center mt-4">
 
-            <!-- Fine Circle Responsive Image -->
-            <div id="container" class="my-2">
-                <div id="dummy"></div>
-                <div id="element">
-                    <img src="/images/profile.png" alt="Philip's personal site" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
-                </div>
-            </div>
+        <div class="container-fluid justify-content-center" style="padding-top: 20px">
+            <h3>Publications</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <b>Structured Semantic Knowledge Can Emerge Automatically from Predicting Word Sequences in Child-Directed Speech</b>
+                    <p>Front. Psychol., 22 February 2018</p>
+                    <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2018.00133/full">[Link]</a>
+                </li>
+                <li class="list-group-item">
+                    <b>Order Matters: Developmentally plausible acquisition of lexical categories</b>
+                    <p>Preprint, 01 February 2020</p>
+                    <a href="https://osf.io/j943u/">[Link]</a>
+                </li>
 
-            <p class="text-muted wow animated slideInUp" data-wow-delay=".15s">Hello! My name is Philip Huebner and I am a graduate student at the University of Illinos, Urbana-Champaign.</p>
-
+            </ul>
         </div>
-    </div>
-
-
 
 </main>
 
@@ -104,37 +79,19 @@
     </small>
 
     <div class="container-fluid justify-content-center">
-
-
-
-
-
-
         <a class="social email mx-1" href="mailto:info@philhuebner.com">
             <i class="fas fa-1x fa-envelope"></i>
         </a>
-
-
-
         <a class="social github mx-1" href="https://www.github.com/phueb">
             <i class="fab fa-1x fa-github"></i>
         </a>
-
-
-
         <a class="social linkedin mx-1" href="https://www.linkedin.com/in/philip-huebner-542001114">
             <i class="fab fa-1x fa-linkedin-in"></i>
         </a>
-
-
-
         <a class="social medium mx-1" href="http://medium.com/@phueb">
             <i class="fab fa-1x fa-medium"></i>
         </a>
-
-
     </div>
-
 
 </footer>
 <!-- GitHub Buttons -->
@@ -156,17 +113,6 @@
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
-<script>
-    var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-    })
-</script>
 
 </body>
 

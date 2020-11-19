@@ -36,6 +36,7 @@
 <body class="d-flex flex-column h-100">
 
 <main class="flex-shrink-0 container mt-5">
+
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="/"><h5><b>Philip's personal site</b></h5></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,82 +44,87 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
-                <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+                <a class="nav-item nav-link  active " href="/demos ">Demos</a>
+                <a class="nav-item nav-link " href="/publications/ ">Publications</a>
                 <a class="nav-item nav-link " href=" /docs/ ">Docs</a>
                 <a class="nav-item nav-link " href=" /datasets/ ">DataSets</a>
                 <a class="nav-item nav-link " href=" /about/ ">About</a>
             </div>
         </div>
     </nav>
-    <!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
 
-    <div class="input-group mt-5 px-3">
-        <input id="search-input" type="text" class="form-control search-box" placeholder="Search articles..">
-        <div class="input-group-append">
-            <span class="input-group-text border border-primary bg-primary text-white"><i class="fas fa-search"></i></span>
-        </div>
-    </div>
-    <ul class="px-3" id="results-container"></ul>
+    <div class="card-columns m-3 mt-5">
 
-    <div class="card-group mt-2">
-        <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-            <a href="https://medium.com/@phueb/order-matters" class="article card bg-success">
-                <div class="card-body text-white">
-                    <h3 class="card-title">Order Matters</h3>
+        <div class="wow animated fadeIn" data-wow-delay=".15s">
+            <a href="/demos/context.html" class="project card text-dark">
+                <img class="card-img-top" src="/images/context.png" alt="Card image cap">
+
+                <div class="card-body">
+                    <h5 class="card-title">Context</h5>
+                    <p class="card-text">Retrieve linguistic contexts in which a word occurs in child-directed speech.</p>
                     <p class="card-text">
-                        <span class="badge badge-light text-success">Order Matters</span>
-                        <span class="badge badge-light text-success">Recurrent Network</span>
-                        <span class="badge badge-light text-success">Language Acquisition</span>
+                        <span class="badge badge-pill text-primary border border-primary">Python</span>
+                        <span class="badge badge-pill text-primary border border-primary">CHILDES database</span>
+                        <span class="badge badge-pill text-primary border border-primary">Language</span>
                     </p>
-                    <p class="card-text">
-                        Developmentally plausible training of recurrent network language models.
-                    </p>
-                </div>
-                <div class="card-footer text-white">
-                    01 February 2020
                 </div>
             </a>
         </div>
 
-        <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-            <a href="https://medium.com/@phueb/two-process-theory" class="article card bg-primary">
-                <div class="card-body text-white">
-                    <h3 class="card-title">Two-Process Theory.</h3>
+        <div class="wow animated fadeIn" data-wow-delay=".15s">
+            <a href="/demos/baby-talk.html" class="project card text-dark">
+                <img class="card-img-top" src="/images/baby-talk.png" alt="Card image cap">
+
+                <div class="card-body">
+                    <h5 class="card-title">Baby-Talk</h5>
+                    <p class="card-text">Generate child-directed speech using a tri-gram model fit on CHILDES.</p>
                     <p class="card-text">
-                        <span class="badge badge-light text-primary">Language Acquisition</span>
-                        <span class="badge badge-light text-primary">Pre-training</span>
-                        <span class="badge badge-light text-primary">NLP</span>
+                        <span class="badge badge-pill text-primary border border-primary">Python</span>
+                        <span class="badge badge-pill text-primary border border-primary">Deep Learning</span>
+                        <span class="badge badge-pill text-primary border border-primary">Computation</span>
                     </p>
-                    <p class="card-text">
-                        Using differentiable metric learning to model human task-related semantic processing.
-                    </p>
-                </div>
-                <div class="card-footer text-white">
-                    01 February 2019
                 </div>
             </a>
         </div>
 
-
-        <div class="container-fluid justify-content-center" style="padding-top: 20px">
-            <h3>Publications</h3>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <b>Structured Semantic Knowledge Can Emerge Automatically from Predicting Word Sequences in Child-Directed Speech</b>
-                    <p>Front. Psychol., 22 February 2018</p>
-                    <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2018.00133/full">[Link]</a>
-                </li>
-                <li class="list-group-item">
-                    <b>Order Matters: Developmentally plausible acquisition of lexical categories</b>
-                    <p>Preprint, 01 February 2020</p>
-                    <a href="https://osf.io/j943u/">[Link]</a>
-                </li>
-
-            </ul>
+        <div class="wow animated fadeIn" data-wow-delay=".15s">
+            <a href="http://projector.tensorflow.org/?config=https://gist.githubusercontent.com/phueb/517106327169775f7ead1a2190ed9ba8/raw/a78d0aeb82eafd504b0ffb0052735629d6eacd08/template_projector_config.json" class="project card text-dark">
+                <img class="card-img-top" src="/images/embedding_projector.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">CHILDES RNN Embeddings</h5>
+                    <p class="card-text">Inspect word representations for 720 nouns learned by a RNN language model trained on 5M words of child-directed speech.</p>
+                    <p class="card-text">
+                        <span class="badge badge-pill text-primary border border-primary">Research</span>
+                        <span class="badge badge-pill text-primary border border-primary">Psychology</span>
+                        <span class="badge badge-pill text-primary border border-primary">Python</span>
+                    </p>
+                </div>
+            </a>
         </div>
 
     </div>
+
+    <div class="card-columns m-3 mt-5">
+
+        <div class="wow animated fadeIn" data-wow-delay=".15s">
+            <a href="http://www.brainandcognitivescience.org" class="project card text-dark">
+                <img class="card-img-top" src="/images/bcsweb.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BcsWeb</h5>
+                    <p class="card-text">Brain and Cognitive Science Web, a web-based, open-source textbook that teaches cognitive science.</p>
+                    <p class="card-text">
+                        <span class="badge badge-pill text-primary border border-primary">Python</span>
+                        <span class="badge badge-pill text-primary border border-primary">Flask</span>
+                        <span class="badge badge-pill text-primary border border-primary">Education</span>
+                        <span class="badge badge-pill text-primary border border-primary">Web</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
 </main>
 
 <footer class="mt-auto py-3 text-center">
